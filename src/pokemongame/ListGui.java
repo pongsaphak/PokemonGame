@@ -80,7 +80,15 @@ public class ListGui extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String Names = (String) pokemonList.getSelectedItem();
                 Pokemon pokemon = pokemonFarm.getPokemonName(Names);
-                //pokemonpic.setIcon(new ImageIcon(getClass().getResource( pokemon.getClass().getSimpleName() + ".jpg")));
+                switch (Names){
+                        case "Pikachu": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Pikachu.png")));
+                                        break;
+                        case "Charmander": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
+                                           break;
+                        default : pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + Names + ".png"))); 
+                                  break;
+                }
+
                 name.setText("Name : " + pokemon.getName());
                 type.setText("Type : " + pokemon.getTypes());
                 weight.setText("Weight : " + pokemon.getWeight());
