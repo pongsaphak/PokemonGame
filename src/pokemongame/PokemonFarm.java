@@ -17,7 +17,7 @@ public class PokemonFarm {
 		pokemons = new ArrayList<Pokemon>();
                 pokemons.add(new Electr("Pikachu", 20, "thunderbolt" , 780));
                 pokemons.add(new Fire("Charmander", 30,"flame burst",800 ));
-                
+                pokemons.add(new Water("Squirtle", 45,"Water Pulse",880 ));
 	}
 
 	public void addPokemon(Pokemon pokemon){
@@ -63,22 +63,20 @@ public class PokemonFarm {
         }
         public Pokemon getPokemonAttack(String name1 ,String name2){
                 Pokemon now = null;
-                PokemonSkill skill1 = null;
-                PokemonSkill skill2 = null;
                 
                 for(Pokemon pokemon1 : pokemons ){
                     for(Pokemon pokemon2 : pokemons ){
                         
                         if (pokemon1.getName().equals(name1) && pokemon2.getName().equals(name2)){
-                                skill1 = PokemonSkill.getPokemonSkill(pokemon1.getSkill());
-                                skill2 = PokemonSkill.getPokemonSkill(pokemon2.getSkill());
+                                PokemonSkill skill1 = new PokemonSkill(pokemon1.getSkill());
+                                PokemonSkill skill2 = new PokemonSkill(pokemon2.getSkill());
                             
-                                if(skill1.getDamage() - skill2.getDamage() > 0 ){
-                                    pokemon2.Attack((skill1.getDamage() - skill2.getDamage()));
+                                if(skill1.getDamage(pokemon1.getSkill()) - skill2.getDamage(pokemon2.getSkill()) > 0 ){
+                                    pokemon2.Attack((skill1.getDamage(pokemon1.getSkill()) - skill2.getDamage(pokemon2.getSkill())));
                                     return pokemon2;
                                 }
-                                else if(skill1.getDamage() - skill2.getDamage() < 0 ){
-                                    pokemon1.Attack(pokemon2.getCp()- pokemon1.getCp());
+                                else if(skill1.getDamage(pokemon1.getSkill()) - skill2.getDamage(pokemon2.getSkill()) < 0 ){
+                                    pokemon1.Attack(skill2.getDamage(pokemon2.getSkill()) - skill1.getDamage(pokemon1.getSkill()));
                                     return pokemon2;
                                 }  
                                 else{
