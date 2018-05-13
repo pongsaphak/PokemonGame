@@ -4,7 +4,7 @@ public class PokemonSkill{
 	private String name;
 	private float damage;
 
-	public PokemonSkill(String name{
+	public PokemonSkill(String name){
 		this.name = name;
 		this.damage = damage;
 	}
