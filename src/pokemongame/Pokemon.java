@@ -51,6 +51,7 @@ abstract class Pokemon{
         }
         public void Attack(float a) {
                 cp-=a;
+                weight -=2;
         }
         
         public String getSkill() {
