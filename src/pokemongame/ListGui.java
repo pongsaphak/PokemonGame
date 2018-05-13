@@ -109,7 +109,7 @@ public class ListGui extends JFrame{
         c.add(leftside);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(900,900);
+        setSize(600,600);
         setVisible(true);
     }
     
