@@ -35,10 +35,10 @@ public class feedGui extends JFrame{
         JPanel Center = new JPanel();
         Center.setLayout(new GridLayout(0,2));
         
-        JLabel pokeball = new JLabel();
-        pokeball .setHorizontalAlignment(JLabel.CENTER);
+        JLabel pokemonpic = new JLabel();
+        pokemonpic .setHorizontalAlignment(JLabel.CENTER);
         Icon img2 = new ImageIcon(getClass().getResource("Pokeball.png"));
-        pokeball .setIcon(img2);
+        pokemonpic .setIcon(img2);
         
         //feed
         JPanel rightside = new JPanel();
@@ -85,6 +85,21 @@ public class feedGui extends JFrame{
                 
             }    
         });
+        pokemonList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = (String) pokemonList.getSelectedItem();
+                Pokemon pokemon = pokemonFarm.getPokemonName(name);
+                    switch (name){
+                        case "Pikachu": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Pikachu.png")));
+                                        break;
+                        case "Charmander": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
+                                           break;
+                        default : pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + name + ".png"))); 
+                                  break;
+                    }
+                
+            }    
+        });
         
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -93,7 +108,7 @@ public class feedGui extends JFrame{
         });
         c.add(pokemonicon, BorderLayout.PAGE_START);
         
-        Center.add(pokeball);
+        Center.add(pokemonpic);
         Center.add(rightside);
         c.add(Center, BorderLayout.CENTER);
         
