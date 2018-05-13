@@ -19,7 +19,7 @@ public class ListGui extends JFrame{
     public ListGui(PokemonFarm pokemonFarm) {
         super("LIST");
         Container c = getContentPane();
-        c.setLayout(new GridLayout(0,1));
+        c.setLayout(new BorderLayout());
         
         pokemonName = new String[pokemonFarm.getPokemonAmount()];
 
@@ -35,8 +35,9 @@ public class ListGui extends JFrame{
         
         //center 
         JPanel center = new JPanel();
-        center.setLayout(new FlowLayout());
-        
+        center.setLayout(new GridLayout(0,1));
+        JPanel inofcom = new JPanel();
+        inofcom .setLayout(new FlowLayout());
         JComboBox pokemonList = new JComboBox(pokemonName);
         
         JButton status = new JButton("Status");
@@ -105,16 +106,19 @@ public class ListGui extends JFrame{
         });
         
         
-        center.add(pokemonList);
-        center.add(status);
-        center.add(back);
+        inofcom.add(pokemonList);
+        inofcom.add(status);
+        inofcom.add(back);
         
         leftside.add(pokemonpic);
         leftside.add(rightside);
         
-        c.add(pokemonicon);
-        c.add(center);
-        c.add(leftside);
+        center.add(inofcom);
+        center.add(leftside);
+        
+        c.add(pokemonicon,BorderLayout.PAGE_START);
+        c.add(center,BorderLayout.CENTER);
+        
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,600);
