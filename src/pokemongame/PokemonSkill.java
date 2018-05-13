@@ -4,7 +4,7 @@ public class PokemonSkill{
 	private String name;
 	private float damage;
 
-	public PokemonSkill(String name, float damage){
+	public PokemonSkill(String name{
 		this.name = name;
 		this.damage = damage;
 	}
@@ -13,29 +13,27 @@ public class PokemonSkill{
 		return this.name;
 	}
 
-	public float getDamage(){
-		return this.damage;
-	}
-
-	public static PokemonSkill getPokemonSkill(String name){
-		PokemonSkill skill = null;
+	public float getDamage(String name){
 		switch(name){
 			case "Flame burst":
-				skill = new PokemonSkill("Flame burst", 90);
+				damage = 90;
 				break;
 			case "thunderbolt":
-				skill = new PokemonSkill("Thunderbolt", 120);
+				damage = 120;
 				break;
 			case "tail whip":
-				skill = new PokemonSkill("Tail Whip", 80);
+				damage = 80;
 				break;
 			case "Water Pulse":
-				skill = new PokemonSkill("Water Pulse", 100);
+				damage = 100;
 				break;
                         case "Tackle":
-                                skill = new PokemonSkill("Tackle", 50);
+                                damage =  50;
 				break;
 		}
-		return skill;
+		
+                return this.damage;
 	}
+
+	
 }
