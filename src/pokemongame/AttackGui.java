@@ -58,7 +58,7 @@ public class AttackGui extends JFrame{
             JLabel Cp2 = new JLabel("CP of 2");
             JLabel weight1 = new JLabel("Weight of 1");
             JLabel weight2 = new JLabel("Weight of 2");
-            JButton attack = new JButton("Attack");
+            JButton attack = new JButton("Battle");
             JButton exit = new JButton("Exit");
             
             
