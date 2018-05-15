@@ -89,9 +89,21 @@ public class MarryGui extends JFrame{
         
             marry.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                  String name1 = (String) pokemon1.getSelectedItem();
-                  String name2 = (String) pokemon2.getSelectedItem();
-                  new Marry(pokemonFarm,name1,name2);
+                    String name1 = (String) pokemon1.getSelectedItem();
+                    Pokemon pokemon1 = pokemonFarm.getPokemonName(name1);
+                    
+                    String name2 = (String) pokemon2.getSelectedItem();
+                    Pokemon pokemon2 = pokemonFarm.getPokemonName(name2);
+                    
+                    pokemon1.Marry();
+                    pokemon2.Marry();
+                    
+                    if(pokemonFarm.getPokemonMarry(name1 ,name2) == 1){
+                        new Marry(pokemonFarm,name1,name2);
+                    }        
+                    else{
+                        new NoMarry();
+                    }    
                 }
             });
         

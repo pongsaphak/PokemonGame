@@ -8,7 +8,7 @@ abstract class Pokemon{
         protected String skill;
         protected float weight;
         protected float gainweight;
-        
+        protected int marry;
 
 	public Pokemon(String name,
                        float weight,
@@ -23,7 +23,7 @@ abstract class Pokemon{
                 this.skill = skill;
                 this.types = types;
                 this.gainweight = gainweight;
-                
+                marry=0;
 	}
 
 	
@@ -60,7 +60,12 @@ abstract class Pokemon{
                return this.skill;
         }
         
-        
+        public int getMarry(){
+            return this.marry;
+        }
+        public void Marry(){
+            marry += 1;
+        }
         public void print(){
         System.out.println("Pokemon name: " + name);
         System.out.print("        Type: ");

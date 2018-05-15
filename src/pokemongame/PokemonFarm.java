@@ -88,5 +88,22 @@ public class PokemonFarm {
                 }
                 return now;
         }
+        public int getPokemonMarry(String name1 ,String name2){
+            
+            for(Pokemon pokemon1 : pokemons ){
+                for(Pokemon pokemon2 : pokemons ){
+                        if(pokemon1.getName().equals(name1) && pokemon2.getName().equals(name2)){
+                            if( pokemon1.getMarry() + pokemon2.getMarry() == 2){
+                                        return 1;
+                            }
+                                        
+                            
+                        }
+                }        
+            }
+            
+            return 0;
+            
+        }
 }
 
