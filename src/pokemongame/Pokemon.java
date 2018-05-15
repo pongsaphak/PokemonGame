@@ -23,7 +23,7 @@ abstract class Pokemon{
                 this.skill = skill;
                 this.types = types;
                 this.gainweight = gainweight;
-                marry=0;
+                this.marry=0;
 	}
 
 	
@@ -65,6 +65,9 @@ abstract class Pokemon{
         }
         public void Marry(){
             marry += 1;
+        }
+        public void NoMarry(){
+            marry = 0;
         }
         public void print(){
         System.out.println("Pokemon name: " + name);

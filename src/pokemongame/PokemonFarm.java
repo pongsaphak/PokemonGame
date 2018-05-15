@@ -93,16 +93,22 @@ public class PokemonFarm {
             for(Pokemon pokemon1 : pokemons ){
                 for(Pokemon pokemon2 : pokemons ){
                         if(pokemon1.getName().equals(name1) && pokemon2.getName().equals(name2)){
-                            if( pokemon1.getMarry() + pokemon2.getMarry() == 2){
+                            if(pokemon1.getMarry() + pokemon2.getMarry() == 2){
                                         return 1;
                             }
-                                        
-                            
+                            else if(pokemon1.getMarry() == 2 && pokemon2.getMarry() == 1){
+                                pokemon2.NoMarry();
+                                return 0;
+                            }           
+                            else if(pokemon1.getMarry() == 1 && pokemon2.getMarry() == 2){
+                                pokemon1.NoMarry();
+                                return 0;
+                            }
                         }
                 }        
             }
             
-            return 0;
+            return 3;
             
         }
 }

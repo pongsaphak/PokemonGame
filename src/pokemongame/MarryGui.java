@@ -47,10 +47,11 @@ public class MarryGui extends JFrame{
             Icon img2 = new ImageIcon(getClass().getResource("Pokeball.png"));
             pokemonpic2 .setIcon(img2);
         
-            //marry&&exit
+            //marry&&divorce&&exit
             JPanel end = new JPanel();
-            end.setLayout(new GridLayout(0,2));
+            end.setLayout(new FlowLayout());
             JButton marry = new JButton("Marry");
+            JButton divorce = new JButton("Divorce");
             JButton exit = new JButton("Exit");
        
         enter1.addActionListener(new ActionListener() {
@@ -107,6 +108,19 @@ public class MarryGui extends JFrame{
                 }
             });
         
+        divorce.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name1 = (String) pokemon1.getSelectedItem();
+                Pokemon pokemon1 = pokemonFarm.getPokemonName(name1);
+                    
+                String name2 = (String) pokemon2.getSelectedItem();
+                Pokemon pokemon2 = pokemonFarm.getPokemonName(name2);
+                
+                pokemon1.NoMarry();
+                pokemon2.NoMarry();
+                new NoMarry();
+            }
+        });
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
@@ -127,6 +141,7 @@ public class MarryGui extends JFrame{
      
             
             end.add(marry);
+            end.add(divorce);
             end.add(exit);
             c.add(end, BorderLayout.PAGE_END);
         
