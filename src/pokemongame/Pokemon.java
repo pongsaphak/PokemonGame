@@ -67,7 +67,7 @@ abstract class Pokemon{
             marry += 1;
         }
         public void NoMarry(){
-            marry = 0;
+            this.marry = 0;
         }
         public void print(){
         System.out.println("Pokemon name: " + name);

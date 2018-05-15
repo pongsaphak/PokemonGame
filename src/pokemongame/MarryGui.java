@@ -71,7 +71,7 @@ public class MarryGui extends JFrame{
             });
             
             
-            enter2.addActionListener(new ActionListener() {
+        enter2.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     
                     String name = (String) pokemon2.getSelectedItem();
@@ -86,9 +86,9 @@ public class MarryGui extends JFrame{
                                   break;
                     }
                 }
-            });
+        });
         
-            marry.addActionListener(new ActionListener(){
+        marry.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     String name1 = (String) pokemon1.getSelectedItem();
                     Pokemon pokemon1 = pokemonFarm.getPokemonName(name1);
@@ -106,7 +106,7 @@ public class MarryGui extends JFrame{
                         new NoMarry();
                     }    
                 }
-            });
+        });
         
         divorce.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -121,13 +121,15 @@ public class MarryGui extends JFrame{
                 new NoMarry();
             }
         });
+        
+        
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
             }
         });
         
-        start.add(jName1);
+            start.add(jName1);
             start.add(pokemon1);
             start.add(enter1);
             start.add(pokemonpic1);
