@@ -81,7 +81,7 @@ public class Gui extends JFrame{
         
         evolution.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                new EvolutionGui(pokemonFarm);
+                new MarryGui(pokemonFarm);
             }
         });
 
