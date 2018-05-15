@@ -15,110 +15,108 @@ import java.util.*;
 public class MarryGui extends JFrame{
     private PokemonFarm pokemonFarm;
     private String[] pokemonName;
-    private String[] pokemonType = {"Grass","Water","Fire","Normal","Electr"};
-    private String[] pokemonSkill = {"Flame burst","thunderbolt","tail whip","Water Pulse","Tackle"};
     
     public MarryGui(PokemonFarm pokemonFarm){
-        super("Evolution");
-        Container c = getContentPane();
-        c.setLayout(new BorderLayout());
-        this.pokemonFarm = pokemonFarm;
+            super("Marry");
+            Container c = getContentPane();
+            c.setLayout(new BorderLayout());
+            
+            pokemonName = new String[pokemonFarm.getPokemonAmount()];
+            for (int i = 0; i < pokemonFarm.getPokemonAmount(); i++) {
+                pokemonName[i] = pokemonFarm.getPokemon(i);
+            }
+            //pokemon1
+            JPanel start = new JPanel();
+            start.setLayout(new FlowLayout()); 
+            JLabel jName1 = new JLabel("Pokemon Name1: ");
+            JComboBox pokemon1 = new JComboBox(pokemonName);
+            JButton enter1 = new JButton("Enter");
+            JLabel pokemonpic1 = new JLabel();
+            pokemonpic1 .setHorizontalAlignment(JLabel.CENTER);
+            Icon img1 = new ImageIcon(getClass().getResource("Pokeball.png"));
+            pokemonpic1 .setIcon(img1);
+            
+            //pokemon2
+            JPanel center = new JPanel();
+            center.setLayout(new FlowLayout()); 
+            JLabel jName2 = new JLabel("Pokemon Name2: ");
+            JComboBox pokemon2 = new JComboBox(pokemonName);
+            JButton enter2 = new JButton("Enter");
+            JLabel pokemonpic2 = new JLabel();
+            pokemonpic2 .setHorizontalAlignment(JLabel.CENTER);
+            Icon img2 = new ImageIcon(getClass().getResource("Pokeball.png"));
+            pokemonpic2 .setIcon(img2);
         
-        pokemonName = new String[pokemonFarm.getPokemonAmount()];
-
-        for (int i = 0; i < pokemonFarm.getPokemonAmount(); i++) {
-            pokemonName[i] = pokemonFarm.getPokemon(i);
-        }
-           
-        JLabel pokemonicon = new JLabel();
-        pokemonicon.setHorizontalAlignment(JLabel.CENTER);
-        Icon img1 = new ImageIcon(getClass().getResource("evolution.jpg"));
-        pokemonicon.setIcon(img1);
-        
-        JPanel Center = new JPanel();
-        Center.setLayout(new GridLayout(1,0));
-        
-        JLabel pokemonpic = new JLabel();
-        pokemonpic .setHorizontalAlignment(JLabel.CENTER);
-        Icon img2 = new ImageIcon(getClass().getResource("Pokeball.png"));
-        pokemonpic .setIcon(img2);
-        
-        
-        JPanel rightside = new JPanel();
-        rightside.setLayout(new GridLayout(0,1));
-        
-        //check exp pokemon
-        JComboBox pokemonList = new JComboBox(pokemonName);
-        JButton check = new JButton("Check EXP.");
-        
-        JLabel name = new JLabel("");
-        name.setHorizontalAlignment(JLabel.CENTER);
-        JLabel exp = new JLabel("");
-        exp.setHorizontalAlignment(JLabel.CENTER);
-        JButton evolution = new JButton("Evolution");
-        JButton Back = new JButton("Back");
-        
-        rightside.add(pokemonList);
-        rightside.add(check);
-        rightside.add(name);
-        rightside.add(exp);
-        rightside.add(evolution);
-        rightside.add(Back);
+            //marry&&exit
+            JPanel end = new JPanel();
+            end.setLayout(new GridLayout(0,2));
+            JButton marry = new JButton("Marry");
+            JButton exit = new JButton("Exit");
        
-        check.addActionListener(new ActionListener(){
-          public void actionPerformed(ActionEvent e){
-            String Names = (String) pokemonList.getSelectedItem();
-                Pokemon pokemon = pokemonFarm.getPokemonName(Names);
-                switch (Names){
-                        case "Pikachu": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Pikachu.png")));
-                                        break;
-                        case "Charmander": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
-                                           break;
-                        default : pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + Names + ".png"))); 
-                                  break;
-                }
-
-                name.setText("Name : " + pokemon.getName());
-                if(pokemon.getExp() == 10 ){
-                    exp.setText("EXP : " + pokemon.getExp() + " Evolution ");
-                }else{
-                    exp.setText("EXP : " + pokemon.getExp() + " No Evolution ");
-                }
+        enter1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String name = (String) pokemon1.getSelectedItem();
+                    Pokemon pokemon= pokemonFarm.getPokemonName(name);
                     
-                
-          }
-        });
-        
-        evolution.addActionListener(new ActionListener(){
-          public void actionPerformed(ActionEvent e){
-                String Names = (String) pokemonList.getSelectedItem();
-                Pokemon pokemon = pokemonFarm.getPokemonName(Names);
-                switch (Names){
-                        case "Pikachu": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Raichu.png")));
+                    switch (name){
+                        case "Pikachu": pokemonpic1.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Pikachu.png")));
                                         break;
-                        case "Charmander": pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
+                        case "Charmander": pokemonpic1.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
                                            break;
-                        default : pokemonpic.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + Names + ".png"))); 
+                        default : pokemonpic1.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + name +".png")));
                                   break;
+                    }
                 }
-                   
-                new addGui(pokemonFarm);
-                
+            });
+            
+            
+            enter2.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
                     
-                
-          }
-        });
+                    String name = (String) pokemon2.getSelectedItem();
+                    Pokemon pokemon= pokemonFarm.getPokemonName(name);
+                    
+                     switch (name){
+                        case "Pikachu": pokemonpic2.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Pikachu.png")));
+                                        break;
+                        case "Charmander": pokemonpic2.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/Charmander.png")));
+                                           break;
+                        default : pokemonpic2.setIcon(new ImageIcon(getClass().getResource( "./imagefiles/" + name +".png")));
+                                  break;
+                    }
+                }
+            });
         
-        Back.addActionListener(new ActionListener() {
+            marry.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                  String name1 = (String) pokemon1.getSelectedItem();
+                  String name2 = (String) pokemon2.getSelectedItem();
+                  new Marry(pokemonFarm,name1,name2);
+                }
+            });
+        
+        exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
             }
         });
         
-        c.add(pokemonicon, BorderLayout.PAGE_START);
-        Center.add(pokemonpic);
-        Center.add(rightside);
-        c.add(Center,BorderLayout.CENTER);
+        start.add(jName1);
+            start.add(pokemon1);
+            start.add(enter1);
+            start.add(pokemonpic1);
+            c.add(start,BorderLayout.PAGE_START);
+            
+            center.add(jName2);
+            center.add(pokemon2);
+            center.add(enter2);
+            center.add(pokemonpic2);
+            c.add(center,BorderLayout.CENTER);
+     
+            
+            end.add(marry);
+            end.add(exit);
+            c.add(end, BorderLayout.PAGE_END);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,600);

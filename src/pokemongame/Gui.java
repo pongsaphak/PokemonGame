@@ -46,13 +46,13 @@ public class Gui extends JFrame{
         JButton feed = new JButton("Feed");
         JButton attack = new JButton("Attack");
         JButton list = new JButton("List");
-        JButton evolution = new JButton("Evolution");
+        JButton marry = new JButton("Marry");
         
         rightside.add(feed);
         rightside.add(add);
         rightside.add(list);
         rightside.add(attack);
-        rightside.add(evolution);
+        rightside.add(marry);
         
 
         add.addActionListener(new ActionListener(){
@@ -79,7 +79,7 @@ public class Gui extends JFrame{
           }
         });
         
-        evolution.addActionListener(new ActionListener(){
+        marry.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 new MarryGui(pokemonFarm);
             }
